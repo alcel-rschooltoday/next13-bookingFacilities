@@ -1,14 +1,6 @@
 import EditBookingForm from "@/app/components/EditBookingForm";
-import { GetServerSideProps } from "next";
 
-interface EditBookingProps {
-  params: {
-    id: string;
-    // Other properties if present in the params object
-  };
-}
-
-const getBookingById = async (id: any) => {
+const getBookingById = async (id: number) => {
   try {
     const res = await fetch(`http://localhost:3000/api/bookings/${id}`, {
       method: "GET",
@@ -26,14 +18,8 @@ const getBookingById = async (id: any) => {
   }
 };
 
-const EditBooking: GetServerSideProps<EditBookingProps> = async (context) => {
+export default async function EditBooking({ params }: { params: any }) {
   try {
-    const params = context.params as { id: string }; // Safely access 'id' property
-
-    if (!params || !params.id) {
-      throw new Error("ID not provided");
-    }
-
     const { id } = params;
     const booking = await getBookingById(id);
     const { name, date, time, facility } = booking;
@@ -52,6 +38,4 @@ const EditBooking: GetServerSideProps<EditBookingProps> = async (context) => {
     // Handle the error gracefully, e.g., show an error message to the user
     return <div>Error: Failed to fetch booking</div>;
   }
-};
-
-export default EditBooking;
+}
