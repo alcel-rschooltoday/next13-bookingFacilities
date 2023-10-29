@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export async function GET(request, { params }) {
+export async function GET(request: Request, { params }: { params: any }) {
   try {
     const { id } = params;
     const booking = await prisma.booking.findFirst({
@@ -24,7 +24,7 @@ export async function GET(request, { params }) {
   }
 }
 
-export async function PUT(request, { params }) {
+export async function PUT(request: Request, { params }: { params: any }) {
   try {
     const { id } = params;
     const data = await request.json();
