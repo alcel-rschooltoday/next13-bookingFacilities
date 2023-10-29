@@ -34,7 +34,7 @@ const Modal: React.FC<ModalProps> = ({
           customWidthClass || ""
         } rounded-lg shadow-lg z-10 relative transform transition-transform opacity-100`}
       >
-        <h2 className="mb-4 text-2xl">{title}</h2>
+        <h2 className="mb-4 text-1xl">{title}</h2>
         {children}
         <div className="flex justify-end mt-5">
           {onSave && (

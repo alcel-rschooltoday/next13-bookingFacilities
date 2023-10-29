@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { FaSave, FaArrowLeft } from "react-icons/fa";
 import Modal from "./Modal";
 
 interface Booking {
@@ -70,7 +71,7 @@ export default function EditBookingForm({ id, name, date, time, facility }) {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: name === "newDate" ? new Date(value) : value,
+      [name]: name === "date" ? new Date(value) : value,
     });
   };
 
@@ -135,20 +136,21 @@ export default function EditBookingForm({ id, name, date, time, facility }) {
             name="facility"
             onChange={handleInputChange}
             value={formData.facility}
-            className="border p-2 rounded-md w-full"
+            className="border p-2 w-full"
           />
         </div>
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded-md"
-        >
-          Save
+        <button type="submit" className="bg-blue-500 text-white px-4 py-2">
+          <span className="flex justify-between items-center">
+            <FaSave /> Save
+          </span>
         </button>
         <button
           onClick={handleBackButtonClick}
-          className="bg-gray-400 text-white px-4 py-2 rounded-md mb-4 ml-2"
+          className="bg-gray-400 text-white px-4 py-2 mb-4 ml-2"
         >
-          Back
+          <span className="flex justify-between items-center">
+            <FaArrowLeft /> Back
+          </span>
         </button>
       </form>
       <Modal isOpen={showModal} onClose={handleCloseModal} title="Required">

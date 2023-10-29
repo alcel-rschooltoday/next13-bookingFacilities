@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { FaSave, FaArrowLeft } from "react-icons/fa";
 import Modal from "../components/Modal";
 
 interface Booking {
@@ -63,6 +64,7 @@ function CreateBooking() {
       return; // Don't proceed with form submission
     }
 
+    console.log(formData);
     // Handle form submission, e.g., sending data to a server
     try {
       const res = await fetch("http://localhost:3000/api/bookings", {
@@ -140,20 +142,21 @@ function CreateBooking() {
             name="facility"
             value={formData.facility}
             onChange={handleInputChange}
-            className="border p-2 rounded-md w-full"
+            className="border p-2 w-full"
           />
         </div>
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded-md"
-        >
-          Save
+        <button type="submit" className="bg-blue-500 text-white px-4 py-2">
+          <span className="flex justify-between items-center">
+            <FaSave /> Save
+          </span>
         </button>
         <button
           onClick={handleBackButtonClick}
-          className="bg-gray-400 text-white px-4 py-2 rounded-md mb-4 ml-2"
+          className="bg-gray-400 text-white px-4 py-2 mb-4 ml-2"
         >
-          Back
+          <span className="flex justify-between items-center">
+            <FaArrowLeft /> Back
+          </span>
         </button>
       </form>
 

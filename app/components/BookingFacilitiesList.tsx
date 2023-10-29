@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
+import { FaEdit, FaTrash, FaCog } from "react-icons/fa";
 import Link from "next/link";
 import Modal from "./Modal";
 import Spinner from "./Spinner";
 import { BookingStatus } from "./enum";
+import FormatTime from "./TimeFormatter";
 
 // Define the interface for the booking data
 interface Booking {
@@ -78,9 +80,10 @@ function BookingFacilitiesList() {
       });
   };
 
-  const openModal = (bookingId: number) => {
+  const openModal = (bookingId: number, BookingStatus: string) => {
     setSelectedBookingId(bookingId);
     setShowModal(true);
+    setSelectedStatus(BookingStatus);
   };
 
   const closeModal = () => {
@@ -178,26 +181,36 @@ function BookingFacilitiesList() {
                 <td className="px-4 py-2">
                   {new Date(booking.date).toLocaleDateString()}
                 </td>
-                <td className="px-4 py-2">{booking.time}</td>
+                <td className="px-4 py-2">
+                  <FormatTime value={booking.time} />
+                </td>
                 <td className="px-4 py-2 text-left">{booking.facility}</td>
                 <td className="px-4 py-2">{booking.status}</td>
                 <td>
                   <Link href={`/editBooking/${booking.id}`}>
                     <button className="px-2 py-1 bg-blue-500 text-white mr-2">
-                      Edit
+                      <span className="flex justify-between items-center">
+                        <FaEdit /> Edit
+                      </span>
                     </button>
                   </Link>
                   <button
                     className="px-2 py-1 bg-red-500 text-white mr-2"
                     onClick={() => confirmDelete(booking)}
                   >
-                    Delete
+                    <span className="flex justify-between items-center">
+                      <FaTrash /> Delete
+                    </span>
                   </button>
                   <button
                     className="px-2 py-1 bg-blue-500 text-white"
-                    onClick={() => openModal(booking.id)}
+                    onClick={() =>
+                      openModal(booking.id, BookingStatus.APPROVED)
+                    }
                   >
-                    Change Status
+                    <span className="flex justify-between items-center">
+                      <FaCog /> <p>Change Status</p>
+                    </span>
                   </button>
                 </td>
               </tr>
@@ -223,9 +236,15 @@ function BookingFacilitiesList() {
                 id="statusSelect"
                 value={selectedStatus}
                 onChange={handleStatusChange}
+                defaultValue={BookingStatus.APPROVED}
               >
-                <option value="APPROVED">{BookingStatus.APPROVED}</option>
-                <option value="CANCELLED">{BookingStatus.CANCELLED}</option>
+                <option value={BookingStatus.APPROVED}>
+                  {BookingStatus.APPROVED}
+                </option>
+                <option value={BookingStatus.CANCELLED}>
+                  {BookingStatus.CANCELLED}
+                </option>
+                x
               </select>
             </label>
           </div>

@@ -4,6 +4,7 @@ const prisma = new PrismaClient();
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
+
   const newBooking = await prisma.booking.create({
     data: {
       name: body.name,
