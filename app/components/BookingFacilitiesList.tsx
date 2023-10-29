@@ -80,10 +80,10 @@ function BookingFacilitiesList() {
       });
   };
 
-  const openModal = (bookingId: number, BookingStatus: string) => {
+  const openModal = (bookingId: number) => {
     setSelectedBookingId(bookingId);
     setShowModal(true);
-    setSelectedStatus(BookingStatus);
+    setSelectedStatus(BookingStatus.APPROVED);
   };
 
   const closeModal = () => {
@@ -204,9 +204,7 @@ function BookingFacilitiesList() {
                   </button>
                   <button
                     className="px-2 py-1 bg-blue-500 text-white"
-                    onClick={() =>
-                      openModal(booking.id, BookingStatus.APPROVED)
-                    }
+                    onClick={() => openModal(booking.id)}
                   >
                     <span className="flex justify-between items-center">
                       <FaCog /> <p>Change Status</p>

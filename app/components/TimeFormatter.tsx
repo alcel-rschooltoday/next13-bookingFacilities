@@ -1,6 +1,10 @@
 import React from "react";
 
-function FormatTime({ value }) {
+interface FormatTimeProps {
+  value: string;
+}
+
+const FormatTime: React.FC<FormatTimeProps> = ({ value }) => {
   const [hours, minutes] = value.split(":");
   const hoursNumeric = parseInt(hours, 10);
   const period = hoursNumeric >= 12 ? "PM" : "AM";
@@ -9,6 +13,6 @@ function FormatTime({ value }) {
   const formattedTime = `${formattedHours}:${minutes} ${period}`;
 
   return <span>{formattedTime}</span>;
-}
+};
 
 export default FormatTime;

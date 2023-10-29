@@ -23,7 +23,7 @@ function CreateBooking() {
   const [modalMessage, setModalMessage] = useState("");
   const router = useRouter();
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: { target: { name: any; value: any } }) => {
     console.log("handleInputChange");
     const { name, value } = e.target;
     setFormData({
@@ -40,7 +40,7 @@ function CreateBooking() {
     setShowModal(false);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     // Check if there are any empty values in the form data

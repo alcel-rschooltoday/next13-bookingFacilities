@@ -11,19 +11,32 @@ interface Booking {
   time: string;
   facility: string;
 }
+interface EditBookingFormProps {
+  id: string;
+  name: string;
+  date: string; // Assuming 'date' is a string received from props
+  time: string;
+  facility: string;
+}
 
-export default function EditBookingForm({ id, name, date, time, facility }) {
+const EditBookingForm: React.FC<EditBookingFormProps> = ({
+  id,
+  name,
+  date,
+  time,
+  facility,
+}) => {
   const [formData, setFormData] = useState<Booking>({
-    name: name,
-    date: new Date(date),
-    time: time,
-    facility: facility,
+    name,
+    date: new Date(date), // Convert 'date' string to Date
+    time,
+    facility,
   });
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     // Check if there are any empty values in the form data
@@ -67,7 +80,7 @@ export default function EditBookingForm({ id, name, date, time, facility }) {
     }
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: { target: { name: any; value: any } }) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -158,4 +171,6 @@ export default function EditBookingForm({ id, name, date, time, facility }) {
       </Modal>
     </div>
   );
-}
+};
+
+export default EditBookingForm;
