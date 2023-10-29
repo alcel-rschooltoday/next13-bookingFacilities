@@ -54,7 +54,7 @@ export async function PUT(request: Request, { params }: { params: any }) {
   }
 }
 
-export async function DELETE(request, { params }) {
+export async function DELETE(request: Request, { params }: { params: any }) {
   try {
     const { id } = params;
     const deletedBooking = await prisma.booking.delete({
