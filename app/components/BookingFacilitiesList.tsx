@@ -176,14 +176,18 @@ function BookingFacilitiesList() {
                 key={booking.id}
               >
                 {/* <td className="px-4 py-2">{booking.id}</td> */}
-                <td className="px-4 py-2 text-left">{booking.name}</td>
+                <td className="px-4 py-2 text-left" style={{ width: "250px" }}>
+                  {booking.name}
+                </td>
                 <td className="px-4 py-2">
                   {new Date(booking.date).toLocaleDateString()}
                 </td>
                 <td className="px-4 py-2">
                   <FormatTime value={booking.time} />
                 </td>
-                <td className="px-4 py-2 text-left">{booking.facility}</td>
+                <td className="px-4 py-2 text-left" style={{ width: "250px" }}>
+                  {booking.facility}
+                </td>
                 <td className="px-4 py-2">{booking.status}</td>
                 <td>
                   <Link href={`/editBooking/${booking.id}`}>
