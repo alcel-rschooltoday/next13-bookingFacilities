@@ -15,7 +15,7 @@ export default async function handler(request: NextRequest) {
         status ENUM('NEW', 'APPROVED', 'CANCELLED', 'DELETED') NOT NULL DEFAULT 'NEW', 
         createdAt DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
         updatedAt DATETIME(3) NOT NULL );`;
-    return NextResponse.json({ 'access' }, { status: 200 });
+    return NextResponse.json("access", { status: 200 });
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
   }
