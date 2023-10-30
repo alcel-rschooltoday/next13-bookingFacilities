@@ -61,13 +61,16 @@ const EditBookingForm: React.FC<EditBookingFormProps> = ({
     }
 
     try {
-      const res = await fetch(`http://localhost:3000/api/bookings/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/bookings/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (!res.ok) {
         throw new Error("Failed to update booking");

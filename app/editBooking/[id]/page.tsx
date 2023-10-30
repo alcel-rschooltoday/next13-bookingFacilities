@@ -2,10 +2,13 @@ import EditBookingForm from "@/app/components/EditBookingForm";
 
 const getBookingById = async (id: number) => {
   try {
-    const res = await fetch(`http://localhost:3000/api/bookings/${id}`, {
-      method: "GET",
-      cache: "no-store",
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/bookings/${id}`,
+      {
+        method: "GET",
+        cache: "no-store",
+      }
+    );
 
     if (!res.ok) {
       throw new Error("Failed to fetch booking");
