@@ -67,16 +67,14 @@ function CreateBooking() {
     console.log(formData);
     // Handle form submission, e.g., sending data to a server
     try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/bookings`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const server = process.env.SERVER;
+      const res = await fetch(`${server}/api/bookings`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       if (res.ok) {
         //router.refresh();
