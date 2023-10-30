@@ -2,10 +2,13 @@ import EditBookingForm from "@/app/components/EditBookingForm";
 
 const getBookingById = async (id: number) => {
   try {
-    const res = await fetch(`/api/bookings/${id}`, {
-      method: "GET",
-      cache: "no-store",
-    });
+    const res = await fetch(
+      `https://booking-facilities.vercel.app/api/bookings/${id}`,
+      {
+        method: "GET",
+        cache: "no-store",
+      }
+    );
 
     if (!res.ok) {
       throw new Error("Failed to fetch booking");
