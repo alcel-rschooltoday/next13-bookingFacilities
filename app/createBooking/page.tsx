@@ -67,8 +67,7 @@ function CreateBooking() {
     console.log(formData);
     // Handle form submission, e.g., sending data to a server
     try {
-      const server = process.env.SERVER;
-      const res = await fetch(`${server}/api/bookings`, {
+      const res = await fetch(`/api/bookings`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

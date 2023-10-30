@@ -61,8 +61,7 @@ const EditBookingForm: React.FC<EditBookingFormProps> = ({
     }
 
     try {
-      const server = process.env.SERVER;
-      const res = await fetch(`${server}/api/bookings/${id}`, {
+      const res = await fetch(`/api/bookings/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",

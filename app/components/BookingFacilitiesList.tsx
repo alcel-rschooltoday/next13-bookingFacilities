@@ -109,9 +109,7 @@ function BookingFacilitiesList() {
 
       if (updatedBooking) {
         updatedBooking.status = selectedStatus;
-        const server = process.env.SERVER;
-
-        const res = await fetch(`${server}/api/bookings/${updatedBooking.id}`, {
+        const res = await fetch(`/api/bookings/${updatedBooking.id}`, {
           method: "PUT",
           headers: {
             "Content-type": "application/json",

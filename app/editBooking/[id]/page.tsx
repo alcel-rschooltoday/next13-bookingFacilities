@@ -2,8 +2,7 @@ import EditBookingForm from "@/app/components/EditBookingForm";
 
 const getBookingById = async (id: number) => {
   try {
-    const server = process.env.SERVER;
-    const res = await fetch(`${server}/api/bookings/${id}`, {
+    const res = await fetch(`/api/bookings/${id}`, {
       method: "GET",
       cache: "no-store",
     });
