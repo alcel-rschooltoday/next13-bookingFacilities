@@ -4,7 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npx prisma generate && prisma migrate resolve --rolled-back '20231027082705_create_booking' && prisma migrate resolve --rolled-back '20231027094101_make_booking_model' && prisma migrate resolve --applied '20231027094101_make_booking_model' && npx prisma migrate deploy && next build",
+    "build": "npm run migrate && next build",
+    "migrate": "npm run generate && npm run resolve-migrations && npm run deploy-migrations",
+    "resolve-migrations": "prisma migrate resolve --rolled-back '20231027082705_create_booking' && prisma migrate resolve --rolled-back '20231027094101_make_booking_model' && prisma migrate resolve --applied '20231027094101_make_booking_model'",
+    "deploy-migrations": "prisma migrate deploy",
+    "generate": "npx prisma generate",
     "start": "next start",
     "lint": "next lint"
   },
