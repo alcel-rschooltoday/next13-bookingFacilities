@@ -2,6 +2,23 @@ import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
+import { sql } from "@vercel/postgres";
+
+export async function GET(request: Request) {
+  try {
+    const result = await sql`CREATE TABLE IF NOT EXISTS booking ( 
+        id INTEGER NOT NULL AUTO_INCREMENT, 
+        name VARCHAR(191) NOT NULL, date DATETIME(3) NOT NULL, 
+        time VARCHAR(255) NOT NULL, facility VARCHAR(191) NOT NULL, 
+        status ENUM('NEW', 'APPROVED', 'CANCELLED', 'DELETED') NOT NULL DEFAULT 'NEW', 
+        createdAt DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+        updatedAt DATETIME(3) NOT NULL );`;
+    return NextResponse.json({ result }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ error }, { status: 500 });
+  }
+}
+
 export async function POST(request: NextRequest) {
   const body = await request.json();
 
@@ -17,7 +34,7 @@ export async function POST(request: NextRequest) {
   return NextResponse.json(newBooking, { status: 201 });
 }
 
-export async function GET(request: NextRequest) {
+/*export async function GET(request: NextRequest) {
   try {
     const bookings = await prisma.booking.findMany({
       orderBy: { id: "desc" },
@@ -30,4 +47,4 @@ export async function GET(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+}*/
