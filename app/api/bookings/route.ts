@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
 
 import { db } from "@vercel/postgres";
-import { sql } from "@vercel/postgres";
 
 export default async function handler(request: NextRequest) {
   const client = await db.connect();
