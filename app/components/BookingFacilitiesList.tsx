@@ -191,14 +191,14 @@ function BookingFacilitiesList() {
                 <td className="px-4 py-2">{booking.status}</td>
                 <td>
                   <Link href={`/editBooking/${booking.id}`}>
-                    <button className="px-2 py-1 bg-blue-500 text-white mr-2">
+                    <button className="p-2 placeholder:px-2 py-1 bg-blue-500 text-white mr-2">
                       <span className="flex justify-between items-center">
                         <FaEdit /> Edit
                       </span>
                     </button>
                   </Link>
                   <button
-                    className="px-2 py-1 bg-red-500 text-white mr-2"
+                    className="p-2 px-2 py-1 bg-red-500 text-white mr-2"
                     onClick={() => confirmDelete(booking)}
                   >
                     <span className="flex justify-between items-center">
@@ -206,7 +206,7 @@ function BookingFacilitiesList() {
                     </span>
                   </button>
                   <button
-                    className="px-2 py-1 bg-blue-500 text-white"
+                    className="p-2 px-2 py-1 bg-blue-500 text-white"
                     onClick={() => openModal(booking.id)}
                   >
                     <span className="flex justify-between items-center">
