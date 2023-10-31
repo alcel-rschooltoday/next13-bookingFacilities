@@ -191,7 +191,7 @@ function BookingFacilitiesList() {
                 <td className="px-4 py-2">{booking.status}</td>
                 <td>
                   <Link href={`/editBooking/${booking.id}`}>
-                    <button className="placeholder:px-2 py-1 bg-blue-500 text-white mr-2">
+                    <button className="px-2 py-1 bg-blue-500 text-white mr-2">
                       <span className="flex justify-between items-center">
                         <FaEdit /> Edit
                       </span>
