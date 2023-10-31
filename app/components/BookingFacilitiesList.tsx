@@ -15,6 +15,7 @@ interface Booking {
   date: Date;
   time: string;
   facility: string;
+  createdAt: Date;
   status: string;
 }
 
@@ -161,10 +162,11 @@ function BookingFacilitiesList() {
           <thead>
             <tr>
               {/* <th className="px-4 py-2">ID</th> */}
-              <th className="px-4 py-2">Name</th>
+              <th className="px-4 py-2 text-left">Name</th>
               <th className="px-4 py-2">Booking Date</th>
               <th className="px-4 py-2">Booking Time</th>
-              <th className="px-4 py-2">Facility</th>
+              <th className="px-4 py-2 text-left">Facility</th>
+              <th className="px-4 py-2">Date Created</th>
               <th className="px-4 py-2">Status</th>
               <th className="px-4 py-2">Action</th>
             </tr>
@@ -176,7 +178,7 @@ function BookingFacilitiesList() {
                 key={booking.id}
               >
                 {/* <td className="px-4 py-2">{booking.id}</td> */}
-                <td className="px-4 py-2" style={{ width: "250px" }}>
+                <td className="px-4 py-2 text-left" style={{ width: "250px" }}>
                   {booking.name}
                 </td>
                 <td className="px-4 py-2">
@@ -185,8 +187,11 @@ function BookingFacilitiesList() {
                 <td className="px-4 py-2">
                   <FormatTime value={booking.time} />
                 </td>
-                <td className="px-4 py-2" style={{ width: "250px" }}>
+                <td className="px-4 py-2 text-left" style={{ width: "250px" }}>
                   {booking.facility}
+                </td>
+                <td className="px-4 py-2 text-left" style={{ width: "250px" }}>
+                  {new Date(booking.createdAt).toLocaleDateString()}
                 </td>
                 <td className="px-4 py-2">{booking.status}</td>
                 <td>
