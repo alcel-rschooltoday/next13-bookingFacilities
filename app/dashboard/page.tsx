@@ -12,7 +12,7 @@ function Dashboard() {
           <FaCalendarAlt />
         </div>
         <div className="text-5xl text-center font-bold m-5">
-          Booking Facilities
+          Booking Facilities Records
         </div>
       </div>
     </div>
