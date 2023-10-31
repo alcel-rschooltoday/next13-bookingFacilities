@@ -77,7 +77,7 @@ function CreateBooking() {
 
       if (res.ok) {
         //router.refresh();
-        router.push("/");
+        router.push("/bookings");
       } else {
         setShowModal(true);
         setModalMessage("Failed to create a booking.");

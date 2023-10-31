@@ -74,7 +74,7 @@ const EditBookingForm: React.FC<EditBookingFormProps> = ({
       }
 
       router.refresh();
-      router.push("/");
+      router.push("/bookings");
     } catch (error) {
       console.log(error);
     }

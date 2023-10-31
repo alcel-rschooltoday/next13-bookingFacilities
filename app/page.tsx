@@ -1,8 +1,8 @@
-import Image from 'next/image'
-import BookingFacilitiesList from './components/BookingFacilitiesList'
+import Dashboard from "./dashboard/page";
 
 export default function Home() {
   return (
-    <BookingFacilitiesList />
-  )
+    <Dashboard />
+    //<BookingFacilitiesList />
+  );
 }
