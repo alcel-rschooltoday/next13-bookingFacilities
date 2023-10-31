@@ -7,7 +7,7 @@
     "build": "npm run migrate && next build",
     "migrate": "npm run generate && npm run deploy-migrations",
     "deploy-migrations": "prisma migrate deploy",
-    "generate": "npx prisma generate && npx prisma db push",
+    "generate": "npx prisma generate",
     "start": "next start",
     "lint": "next lint"
   },
