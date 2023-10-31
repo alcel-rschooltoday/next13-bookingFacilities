@@ -3,7 +3,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 
 function Dashboard() {
   return (
-    <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
+    <div className="bg-gray-100 p-4 rounded-lg shadow-lg mx-auto">
       <div
         className="flex items-center justify-center"
         style={{ height: "300px;" }}

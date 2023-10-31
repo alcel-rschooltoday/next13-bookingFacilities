@@ -157,7 +157,7 @@ function BookingFacilitiesList() {
     }
 
     return (
-      <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
+      <div className="bg-gray-100 p-4 rounded-lg shadow-lg mx-auto">
         <table className="min-w-full table-auto">
           <thead>
             <tr>

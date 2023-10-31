@@ -90,7 +90,7 @@ function CreateBooking() {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="bg-gray-100 p-4 rounded-lg shadow-lg mx-auto">
       <h1 className="text-3xl">Create Booking</h1>
       <form onSubmit={handleSubmit} className="mt-4">
         <div className="mb-4">
