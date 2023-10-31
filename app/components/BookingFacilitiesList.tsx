@@ -178,7 +178,10 @@ function BookingFacilitiesList() {
                 key={booking.id}
               >
                 {/* <td className="px-4 py-2">{booking.id}</td> */}
-                <td className="px-4 py-2 text-left" style={{ width: "250px" }}>
+                <td
+                  className="px-4 py-2 text-left"
+                  style={{ maxWidth: "150px" }}
+                >
                   {booking.name}
                 </td>
                 <td className="px-4 py-2">
@@ -187,7 +190,7 @@ function BookingFacilitiesList() {
                 <td className="px-4 py-2">
                   <FormatTime value={booking.time} />
                 </td>
-                <td className="px-4 py-2 text-left" style={{ width: "250px" }}>
+                <td className="px-4 py-2 text-left" style={{ width: "150px" }}>
                   {booking.facility}
                 </td>
                 <td className="px-4 py-2">
