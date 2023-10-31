@@ -190,7 +190,7 @@ function BookingFacilitiesList() {
                 <td className="px-4 py-2 text-left" style={{ width: "250px" }}>
                   {booking.facility}
                 </td>
-                <td className="px-4 py-2 text-left" style={{ width: "250px" }}>
+                <td className="px-4 py-2">
                   {new Date(booking.createdAt).toLocaleDateString()}
                 </td>
                 <td className="px-4 py-2">{booking.status}</td>
